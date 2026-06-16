@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的个人主页</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      margin-top: 35px;
+      text-align: left;
+    }
+
+    .section h2 {
+      border-left: 5px solid #222;
+      padding-left: 12px;
+      font-size: 22px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: #f0f0f0;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #222;
+      color: white;
+      text-decoration: none;
+      border-radius: 999px;
+    }
+
+    .button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="avatar">M</div>
+
+    <h1>你好，我是 Mafalda</h1>
+    <p class="subtitle">AI 编程小白｜正在学习把 AI 生成的代码跑起来</p>
+
+    <div class="section">
+      <h2>关于我</h2>
+      <p>
+        我正在学习如何用 AI 做网页、小工具和个人项目。
+        这个页面是我的第一个 GitHub Pages 个人主页。
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>我正在学习</h2>
+      <div class="tags">
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Cursor</span>
+        <span class="tag">HTML</span>
+        <span class="tag">GitHub Pages</span>
+        <span class="tag">AI 生成代码</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>我能提供什么</h2>
+      <p>
+        我会用小白能听懂的方式，记录 AI 生成代码从复制、运行、报错、修改到部署上线的过程。
+      </p>
+    </div>
+
+    <a class="button" href="mailto:你的邮箱@example.com">联系我</a>
+  </div>
+</body>
+</html>
