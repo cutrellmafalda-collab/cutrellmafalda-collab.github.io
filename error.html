@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>常见报错分析器 - AI 代码急救站</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html">AI 代码急救站</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a class="active" href="error.html">报错分析器</a>
+        <a href="package.html">资料包</a>
+        <a href="projects.html">练手项目</a>
+        <a href="about.html">关于我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>常见报错分析器</h1>
+      <p class="subtitle">粘贴完整报错，先抓关键错误行，再判断最可能的问题，并生成适合问豆包/ChatGPT 的提问。</p>
+    </section>
+
+    <section class="section" id="error-analyzer">
+      <h2>粘贴你的完整报错</h2>
+      <p>不要只复制最后一行。最好从红色报错开始，多复制一些上下文。</p>
+      <div class="notice">安全提醒：不要粘贴 API Key、密码、Token、邮箱验证码、身份证号等敏感信息。</div>
+      <textarea id="errorInput" placeholder="例如：npm ERR!、Module not found、Build failed、API key missing、CORS error..."></textarea>
+      <div class="analyzer-actions">
+        <button class="button" onclick="analyzeError()">开始分析</button>
+        <button class="button secondary" onclick="clearError()">清空内容</button>
+      </div>
+      <div id="errorResult" class="result-box" style="display:none;"></div>
+    </section>
+
+    <section class="section">
+      <h2>可以用这段测试</h2>
+      <div class="key-lines">npm ERR! code ELIFECYCLE
+Module not found: Error: Can't resolve 'react-router-dom'
+Failed to compile.</div>
+    </section>
+  </main>
+
+  <div class="doubao-widget">
+    <button class="doubao-float-btn" onclick="toggleDoubaoBox()">问豆包</button>
+    <div class="doubao-box" id="doubaoBox">
+      <div class="doubao-header"><strong>豆包提问小窗</strong><button onclick="toggleDoubaoBox()">×</button></div>
+      <p class="doubao-tip">把你的问题或报错粘贴进来，我帮你整理成适合问豆包的格式。</p>
+      <textarea id="doubaoQuestion" class="doubao-textarea" placeholder="例如：我运行 npm run dev 报错 Module not found，不知道怎么解决..."></textarea>
+      <button class="button" onclick="prepareDoubaoPrompt()">整理并复制</button>
+      <button class="button secondary" onclick="openDoubao()">打开豆包</button>
+      <div id="doubaoPromptBox" class="doubao-result" style="display:none;"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">© 2026 AI 生成代码小白急救站</footer>
+  <script src="script.js"></script>
+</body>
+</html>
