@@ -3,28 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的个人主页</title>
+
+  <title>AI 生成代码小白急救站</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, "Microsoft YaHei", sans-serif;
-      background: #f5f5f5;
+      background: #f5f7fb;
       color: #222;
+      line-height: 1.8;
     }
 
     .container {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 40px;
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 24px;
+    }
+
+    .hero {
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 24px;
+      padding: 48px 36px;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .avatar {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       background: #222;
       color: white;
@@ -37,90 +44,261 @@
     }
 
     h1 {
-      margin-bottom: 10px;
-      font-size: 36px;
+      font-size: 38px;
+      margin: 10px 0;
     }
 
     .subtitle {
-      color: #666;
       font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .section {
-      margin-top: 35px;
-      text-align: left;
-    }
-
-    .section h2 {
-      border-left: 5px solid #222;
-      padding-left: 12px;
-      font-size: 22px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .tag {
-      background: #f0f0f0;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 14px;
+      color: #666;
+      margin-bottom: 28px;
     }
 
     .button {
       display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
+      margin: 10px;
+      padding: 12px 26px;
+      border-radius: 999px;
       background: #222;
       color: white;
       text-decoration: none;
-      border-radius: 999px;
+      font-weight: bold;
     }
 
-    .button:hover {
-      background: #444;
+    .button.secondary {
+      background: #f0f0f0;
+      color: #222;
+    }
+
+    .section {
+      background: white;
+      margin-top: 28px;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .section h2 {
+      font-size: 26px;
+      margin-top: 0;
+      border-left: 6px solid #222;
+      padding-left: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #f7f7f7;
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .price-box {
+      background: #222;
+      color: white;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .price {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .notice {
+      background: #fff8e6;
+      border-left: 6px solid #f0b429;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      margin: 40px 0 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .hero {
+        padding: 36px 22px;
+      }
+
+      .section {
+        padding: 24px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <div class="avatar">M</div>
 
-    <h1>你好，我是 Mafalda</h1>
-    <p class="subtitle">AI 编程小白｜正在学习把 AI 生成的代码跑起来</p>
+    <div class="hero">
+      <div class="avatar">M</div>
 
-    <div class="section">
-      <h2>关于我</h2>
-      <p>
-        我正在学习如何用 AI 做网页、小工具和个人项目。
-        这个页面是我的第一个 GitHub Pages 个人主页。
+      <h1>AI 生成代码小白急救站</h1>
+
+      <p class="subtitle">
+        我也是从小白开始，正在学习如何把 AI 写出来的代码跑起来、改得动、部署成链接。
       </p>
+
+      <a class="button" href="#package">查看资料包</a>
+      <a class="button secondary" href="#contact">联系我</a>
     </div>
 
     <div class="section">
-      <h2>我正在学习</h2>
-      <div class="tags">
-        <span class="tag">ChatGPT</span>
-        <span class="tag">Cursor</span>
-        <span class="tag">HTML</span>
-        <span class="tag">GitHub Pages</span>
-        <span class="tag">AI 生成代码</span>
+      <h2>你是不是也遇到过这些问题？</h2>
+
+      <ul>
+        <li>AI 给了我一堆代码，但我不知道放哪里</li>
+        <li>文件很多，我不知道哪个是入口文件</li>
+        <li>教程让我输入命令，但我不知道在哪里输入</li>
+        <li>一运行就报错，全是英文，看不懂</li>
+        <li>不知道 API Key 应该填在哪里</li>
+        <li>本地能打开，部署到 GitHub / Vercel / Netlify 就失败</li>
+        <li>想改标题、颜色、按钮，但怕把代码改坏</li>
+      </ul>
+    </div>
+
+    <div class="section" id="package">
+      <h2>《AI 生成代码小白急救包》</h2>
+
+      <p>
+        这是一套给编程小白准备的资料包。
+        它不是教你成为程序员，也不承诺让你马上赚钱。
+        它只解决一个很具体的问题：
+      </p>
+
+      <p>
+        <strong>AI 已经把代码写出来了，但你不知道怎么检查、怎么运行、怎么排错、怎么部署。</strong>
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Prompt 包</h3>
+          <p>教你怎么问 AI，让 AI 一步一步解释代码、运行方式和报错原因。</p>
+        </div>
+
+        <div class="card">
+          <h3>运行检查清单</h3>
+          <p>拿到 AI 代码后，按照清单检查文件、命令、环境、依赖和 API Key。</p>
+        </div>
+
+        <div class="card">
+          <h3>部署教程</h3>
+          <p>教你把简单网页上传到 GitHub Pages，把前端项目部署成在线链接。</p>
+        </div>
+
+        <div class="card">
+          <h3>常见报错手册</h3>
+          <p>把常见英文报错翻译成人话，并给出可以复制给 AI 的提问模板。</p>
+        </div>
       </div>
     </div>
 
     <div class="section">
-      <h2>我能提供什么</h2>
-      <p>
-        我会用小白能听懂的方式，记录 AI 生成代码从复制、运行、报错、修改到部署上线的过程。
-      </p>
+      <h2>适合谁？</h2>
+
+      <ul>
+        <li>刚开始用 ChatGPT / Cursor 写代码的人</li>
+        <li>完全不懂代码，但想做一个网页或小工具的人</li>
+        <li>AI 生成代码后，不知道怎么运行的人</li>
+        <li>经常遇到报错，但不知道怎么问 AI 的人</li>
+        <li>想把自己的第一个网页部署上线的人</li>
+      </ul>
     </div>
 
-    <a class="button" href="mailto:你的邮箱@example.com">联系我</a>
+    <div class="section">
+      <h2>不适合谁？</h2>
+
+      <ul>
+        <li>已经很懂编程的人</li>
+        <li>想学习完整计算机课程的人</li>
+        <li>想做复杂商业系统、支付系统、大型后台的人</li>
+        <li>想靠一份资料马上赚钱的人</li>
+        <li>完全不愿意动手操作的人</li>
+      </ul>
+
+      <div class="notice">
+        提醒：AI 生成代码只是草稿，重要项目上线前一定要测试。不要把 API Key、密码、Token 上传到公开 GitHub。
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>资料包内容</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>20 个 Prompt 模板</h3>
+          <p>需求整理、生成代码、解释项目、报错急救、部署上线。</p>
+        </div>
+
+        <div class="card">
+          <h3>40 项检查清单</h3>
+          <p>从文件、环境、依赖、运行命令，到 API Key 和部署前检查。</p>
+        </div>
+
+        <div class="card">
+          <h3>3 个部署教程</h3>
+          <p>GitHub Pages、Netlify、Vercel 的小白部署路线。</p>
+        </div>
+
+        <div class="card">
+          <h3>20 个常见报错</h3>
+          <p>npm、Module not found、API key missing、Build failed 等。</p>
+        </div>
+      </div>
+
+      <div class="price-box">
+        <p>早鸟测试版</p>
+        <div class="price">¥19</div>
+        <p>适合第一批跟着我一起学习、一起踩坑的小白用户。</p>
+      </div>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>联系我</h2>
+
+      <p>
+        如果你也想学习如何把 AI 生成的代码跑起来，可以联系我领取资料包。
+      </p>
+
+      <ul>
+        <li>微信：这里填写你的微信号</li>
+        <li>邮箱：这里填写你的邮箱</li>
+        <li>小红书 / 抖音 / B站：这里填写你的账号</li>
+      </ul>
+
+      <a class="button" href="mailto:你的邮箱@example.com">发送邮件</a>
+    </div>
+
+    <footer>
+      © 2026 AI 生成代码小白急救站｜从小白开始，一步一步把代码跑起来
+    </footer>
+
   </div>
 </body>
 </html>
