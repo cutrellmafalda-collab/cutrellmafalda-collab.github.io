@@ -1,3 +1,4 @@
+const WORKER_URL = "https://ai-error-helper.cutrellmafalda.workers.dev/";
 function analyzeError() {
   const input = document.getElementById("errorInput").value.trim();
   const resultBox = document.getElementById("errorResult");
@@ -194,4 +195,78 @@ function escapeHtml(text) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+async function askRealAI() {
+  const input = document.getElementById("errorInput").value.trim();
+  const resultBox = document.getElementById("errorResult");
+
+  if (!input) {
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `
+      <h3>还没有粘贴报错</h3>
+      <p>请先把完整报错粘贴进来，再点击“AI 真分析”。</p>
+    `;
+    return;
+  }
+
+  resultBox.style.display = "block";
+  resultBox.innerHTML = `
+    <h3>AI 正在分析...</h3>
+    <p>稍等一下，我正在帮你从一大堆报错里找真正关键的问题。</p>
+  `;
+
+  try {
+    const response = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        question: input
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      resultBox.innerHTML = `
+        <h3>AI 分析失败</h3>
+        <p>${escapeHtml(data.error || "未知错误")}</p>
+        <pre class="copy-prompt">${escapeHtml(JSON.stringify(data.detail || data, null, 2))}</pre>
+      `;
+      return;
+    }
+
+    resultBox.innerHTML = `
+      <h3>AI 真分析结果</h3>
+      <div class="copy-prompt">${escapeHtml(data.answer)}</div>
+      ${
+        data.remaining !== null && data.remaining !== undefined
+          ? `<p class="small-text">今天剩余免费次数：${data.remaining}</p>`
+          : ""
+      }
+      <button class="button" onclick="copyAIAnswer()">复制分析结果</button>
+    `;
+  } catch (error) {
+    resultBox.innerHTML = `
+      <h3>请求失败</h3>
+      <p>可能是 Worker 地址填错、CORS 没配置好，或者网络问题。</p>
+      <p>${escapeHtml(String(error))}</p>
+    `;
+  }
+}
+
+function copyAIAnswer() {
+  const box = document.querySelector(".copy-prompt");
+
+  if (!box) {
+    alert("还没有可复制的内容。");
+    return;
+  }
+
+  navigator.clipboard.writeText(box.innerText).then(() => {
+    alert("已经复制。");
+  }).catch(() => {
+    alert("复制失败，请手动复制。");
+  });
 }
